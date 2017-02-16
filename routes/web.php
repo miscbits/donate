@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'HomeController@index');
+
+Route::get('/home', function () {
+    return redirect('/home');
 });
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
-
-Route::post('/payment', ['uses' => 'PaymentController@payment', 'middleware' => 'auth']);
+Route::post('/donation', 'DonationsController@store');
