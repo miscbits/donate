@@ -48,6 +48,11 @@
         @yield('content')
     </div>
 
+<footer class="footer">
+      <div class="container">
+        <a href="https://github.com/miscbits/donate">Proudly Open Source</a>
+      </div>
+    </footer>
     <!-- Scripts -->
 </body>
 </html>
