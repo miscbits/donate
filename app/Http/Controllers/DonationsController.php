@@ -51,7 +51,7 @@ class DonationsController extends Controller
           "source" => $token,
         ));
 
-        return redirect('/');
+        return redirect('/')->with('success', true);
     }
 
     /**

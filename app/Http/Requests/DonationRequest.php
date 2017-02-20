@@ -30,7 +30,7 @@ class DonationRequest extends FormRequest
             'address' => 'required|string',
              'amount' => 'required|integer',
               'terms' => 'required|accepted',
-            'twitter' => 'string',
+            'twitter' => 'string|nullable',
         ];
     }
 }

@@ -54,8 +54,25 @@
         <div class="col-md-8 col-md-offset-2 panel-form">
             <div id="header">
               <h2>Thanks For Your Help!</h2>
+
+              @if(session('success'))
+                <div class="alert alert-success">
+                  <p>Your payment was successfully processed!</p>
+                </div>
+              @endif
+
               <p>Thank you for supporting Kyle Hudson's Mayoral campaign! Every little bit helps. Your support will help us build a stronger community as one.</p>
             </div>
+
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             <form action="/donation" method="POST" id="payment-form">
               {{ csrf_field() }}
