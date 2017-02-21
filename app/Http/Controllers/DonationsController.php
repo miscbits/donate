@@ -47,7 +47,7 @@ class DonationsController extends Controller
         $charge = Charge::create(array(
           "amount" => $request->input('amount'),
           "currency" => "usd",
-          "description" => "Test Charge",
+          "description" => "Donation from " . $request->input('first_name') . ' ' . $request->input('last_name'),
           "source" => $token,
         ));
 
