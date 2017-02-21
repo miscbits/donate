@@ -37,7 +37,7 @@ class DonationsController extends Controller
      */
     public function store(DonationRequest $request)
     {
-        Donation::create($request->only(['name','email','phone','address','amount','twitter','terms']));
+        Donation::create($request->only(['first_name','last_name','email','phone','address1','address2','city','zip','amount','twitter','terms']));
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
