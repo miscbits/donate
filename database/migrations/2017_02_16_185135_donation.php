@@ -15,12 +15,16 @@ class Donation extends Migration
     {
         Schema::create('donations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('email');
             $table->string('phone');
-            $table->string('address');
+            $table->string('address1');
+            $table->string('address2')->nullable();
+            $table->string('city');
+            $table->integer('zip');
             $table->integer('amount');
-            $table->string('twitter');
+            $table->string('twitter')->nullable();
             $table->boolean('terms');
             $table->timestamps();
         });

@@ -81,15 +81,19 @@
               <div class="form-group">
                 <div class="col-sm-6 col-xs-12">
                   <label>
-                    <span>Full Name</span>
-                    <input id="name" class="form-control" type="text" size="20" name='name'>
+                    <span>First Name</span>
+                    <div class="input-group">                  
+                      <input id="first_name" class="form-control" type="text" name='first_name'>
+                    </div>
                   </label>
                 </div>
 
                 <div class="col-sm-6 col-xs-12">
                   <label>
-                    <span>Email</span>
-                    <input id="email" class="form-control" type="text" size="20" name='email'>
+                    <span>Last Name</span>
+                    <div class="input-group">
+                      <input id="last_name" class="form-control" type="text" name='last_name'>
+                    </div>
                   </label>
                 </div>
               </div>
@@ -98,14 +102,58 @@
                   <div class="col-sm-6 col-xs-12">
                     <label>
                       <span>Phone Number</span>
-                      <input id="phone" class="form-control" type="text" size="20" name='phone'>
+                      <div class="input-group">
+                        <input id="phone" class="form-control" type="text" name='phone'>
+                      </div>
+                    </label>
+                  </div>
+
+                <div class="col-sm-6 col-xs-12">
+                  <label>
+                    <span>Email</span>
+                    <div class="input-group">
+                      <input id="email" class="form-control" type="text" name='email'>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="col-sm-6 col-xs-12">
+                    <label>
+                      <span>Address Line 1</span>
+                      <div class="input-group">
+                        <input id="address1" class="form-control" type="text" name='address1'>
+                      </div>
                     </label>
                   </div>
 
                   <div class="col-sm-6 col-xs-12">
                     <label>
-                      <span>Home Address</span>
-                      <input id="address" class="form-control" type="text" size="20" name='address'>
+                      <span>Address Line 2</span>
+                      <div class="input-group">
+                        <input id="address2" class="form-control" type="text" name='address2'>
+                      </div>
+                    </label>
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <div class="col-sm-6 col-xs-12">
+                    <label>
+                      <span>City</span>
+                      <div class="input-group">
+                        <input id="city" class="form-control" type="text" name='city'>
+                      </div>
+                    </label>
+                  </div>
+
+                  <div class="col-sm-6 col-xs-12">
+                    <label>
+                      <span>Zip Code</span>
+                      <div class="input-group">
+                        <input id="zip" class="form-control" type="text" name='zip'>
+                      </div>
                     </label>
                   </div>
               </div>
@@ -114,14 +162,21 @@
                   <div class="col-sm-6 col-xs-12">
                     <label>
                       <span>Donation Amount</span>
-                      <input id="amount" class="form-control" type="text" size="20" name='amount'>
+                      <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <div class="input-group">
+                          <input id="amount" class="form-control" type="text" name='amount'>
+                        </div>
+                      </div>
                     </label>
                   </div>
 
                   <div class="col-sm-6 col-xs-12">
                     <label>
                       <span>Twitter Handle</span>
-                      <input id="twitter" class="form-control" type="text" size="20" name='twitter'>
+                      <div class="input-group">
+                        <input id="twitter" class="form-control" type="text" name='twitter'>
+                      </div>
                     </label>
                   </div>
               </div>
@@ -130,7 +185,7 @@
                   <div class="col-sm-6 col-xs-12">
                     <label>
                       <span>Card Number</span>
-                      <input id="number" class="form-control" type="text" size="20" data-stripe="number">
+                      <input id="number" class="form-control" type="text" data-stripe="number">
                     </label>
                   </div>
 
@@ -139,11 +194,11 @@
                       <span>Expiration (MM/YY)</span>
                     </label>
                     <div class="col-xs-5">
-                      <input id="exp_month" class="form-control" type="text" size="2" data-stripe="exp_month">
+                      <input id="exp_month" class="form-control" type="text" data-stripe="exp_month">
                     </div>
                     <div class="col-xs-2">/</div>
                     <div class="col-xs-5">
-                      <input id="exp_year" class="form-control" type="text" size="2" data-stripe="exp_year">
+                      <input id="exp_year" class="form-control" type="text" data-stripe="exp_year">
                     </div>
                   </div>
               </div>
@@ -152,14 +207,14 @@
                   <div class="col-sm-6 col-xs-12">
                     <label>
                       <span>CVC</span>
-                      <input id="cvc" class="form-control" type="text" size="4" data-stripe="cvc">
+                      <input id="cvc" class="form-control" type="text" data-stripe="cvc">
                     </label>
                   </div>
 
                   <div class="col-sm-6 col-xs-12">
                     <label>
-                      <input class="form-check-input" type="checkbox" name="terms" value="1">
                       <span>By checking this box you are are agreeing that you are at least 18 years old and you are a United States citizen.</span>
+                      <input class="form-check-input large-checkbox" type="checkbox" name="terms" value="1">
                     </label>
                   </div>
               </div>

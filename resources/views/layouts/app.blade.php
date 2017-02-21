@@ -47,6 +47,11 @@
         @yield('content')
     </div>
 
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Paid for by the West Chester Young Democrats.</p>
+      </div>
+    </footer>
     <!-- Scripts -->
 </body>
 </html>
