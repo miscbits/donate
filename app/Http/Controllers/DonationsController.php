@@ -37,21 +37,35 @@ class DonationsController extends Controller
      */
     public function store(DonationRequest $request)
     {
-        Donation::create($request->only(['first_name','last_name','email','phone','address1','address2','city','zip','amount','twitter','terms']));
+        $donation = new Donation;
+
+        $donation->fill($request->only(['first_name','last_name','email','phone','address1','address2','city','zip','amount','twitter','terms']));
 
         Stripe::setApiKey(env('STRIPE_SECRET'));
 
         $token = $request->input('stripeToken');
 
-        // Charge the user's card:
-        $charge = Charge::create(array(
-          "amount" => $request->input('amount'),
-          "currency" => "usd",
-          "description" => "Donation from " . $request->input('first_name') . ' ' . $request->input('last_name'),
-          "source" => $token,
-        ));
+        try {
+            // Charge the user's card:
+            $charge = Charge::create(array(
+              "amount" => $request->input('amount'),
+              "currency" => "usd",
+              "description" => "Donation from " . $request->input('first_name') . ' ' . $request->input('last_name'),
+              "source" => $token,
+            ));
+        }
+        catch (Stripe_InvalidRequestError $a) {
+            // Since it's a decline, Stripe_CardError will be caught
+            return redirect('/')->with('errors', collect("Your card was declined. Please check that your information is correct and that your card is not expired."));
+        }
 
-        return redirect('/')->with('success', true);
+        catch (Stripe_Error $e) {
+            // Since it's a decline, Stripe_CardError will be caught
+            return redirect('/')->with('errors', collect("Your card was declined. Please try again with a different card."));
+        }
+
+        $donation->save();
+
     }
 
     /**
