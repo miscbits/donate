@@ -54,17 +54,24 @@ class DonationsController extends Controller
               "source" => $token,
             ));
         }
-        catch (Stripe_InvalidRequestError $a) {
+        catch (\Stripe\Error\InvalidRequest $a) {
             // Since it's a decline, Stripe_CardError will be caught
             return redirect('/')->with('errors', collect("Your card was declined. Please check that your information is correct and that your card is not expired."));
         }
 
-        catch (Stripe_Error $e) {
+        catch (\Stripe\Error\Card $e) {
             // Since it's a decline, Stripe_CardError will be caught
             return redirect('/')->with('errors', collect("Your card was declined. Please try again with a different card."));
         }
+        catch (\Stripe\Error\ApiConnection $e) {
+            return redirect('/')->with('errors', collect("Could not connect to API. Your card was not charged. Please try again later."));
+        }
+        catch (\Stripe\Error\Base $e) {
+            return redirect('/')->with('errors', collect("Something went wrong. You were not charged for this transaction. Please try again later"));
+        }
 
         $donation->save();
+        return redirect('/')->with('success', true);
 
     }
 
