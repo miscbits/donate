@@ -58,6 +58,7 @@
               @if(session('success'))
                 <div class="alert alert-success">
                   <p>Your payment was successfully processed!</p>
+                  <a href="http://kylehudson.com">Back to main site</a>
                 </div>
               @endif
 
@@ -213,7 +214,7 @@
 
                   <div class="col-sm-6 col-xs-12">
                     <label>
-                      <span>By checking this box you are are agreeing that you are at least 18 years old and you are a United States citizen.</span>
+                      <span>By checking this box you are are agreeing that you are at least 18 years old and you are a United States citizen. You agree this money is not being given in the name of a business and it is a personal donation made in your own name.</span>
                       <input class="form-check-input large-checkbox" type="checkbox" name="terms" value="1">
                     </label>
                   </div>

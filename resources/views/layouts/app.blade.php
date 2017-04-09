@@ -49,7 +49,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p class="text-muted">Paid for by the West Chester Young Democrats.</p>
+        <p class="text-muted">Paid for by the West Chester Millennial Congress | <a href="http://kylehudson.com/">Back to main site</a></p>
       </div>
     </footer>
     <!-- Scripts -->
